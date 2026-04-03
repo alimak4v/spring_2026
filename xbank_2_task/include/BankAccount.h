@@ -9,7 +9,7 @@
 #include "TRANS_LIST.h"
 
 
-class TRANSACTION;
+class Transaction;
 
 class BankAccount {
 public:
@@ -18,7 +18,7 @@ public:
   void UPDATE_ID(int64_t new_id_);
   RUB balance_() const;
   void TOP_UP_ACCOUNT(RUB sum_);
-  void ADD_TRANS(const TRANSACTION& transaction_);
+  void ADD_TRANS(const Transaction& transaction_);
   STR get_name() const;
   void log(std::ostream& out = std::cout) const;
 private:

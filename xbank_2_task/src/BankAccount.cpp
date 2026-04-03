@@ -1,5 +1,5 @@
 #include "../include/BankAccount.h"
-#include "../include/TRANSACTION.h"
+#include "../include/Transaction.h"
 
 
 BankAccount::BankAccount(const ID& id_, const STR& name_, const RUB& balance_) {
@@ -24,7 +24,7 @@ void BankAccount::TOP_UP_ACCOUNT(RUB sum_) {
   balance = balance + sum_;
 }
 
-void BankAccount::ADD_TRANS(const TRANSACTION& transaction_) {
+void BankAccount::ADD_TRANS(const Transaction& transaction_) {
   if (transaction_._from() == this) {
     list.ADD_FROM(transaction_);
     balance = balance - transaction_._sum();

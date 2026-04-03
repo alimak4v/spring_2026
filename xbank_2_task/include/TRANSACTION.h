@@ -14,10 +14,10 @@ class BankAccount;
 class Category;
 class Operation;
 
-class TRANSACTION {
+class Transaction {
 public:
-  TRANSACTION(const ID& id_, BankAccount* from_, BankAccount* to_, RUB sum_, DATE date_, Category* category_);
-  TRANSACTION(const ID& id_, BankAccount* from_, BankAccount* to_, RUB sum_, DATE date_, STR descr_, Category* category_);
+  Transaction(const ID& id_, BankAccount* from_, BankAccount* to_, RUB sum_, DATE date_, Category* category_);
+  Transaction(const ID& id_, BankAccount* from_, BankAccount* to_, RUB sum_, DATE date_, STR descr_, Category* category_);
   void set_describtion(STR line);
   BankAccount* _from() const;
   BankAccount* _to() const;

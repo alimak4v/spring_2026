@@ -1,10 +1,10 @@
-#include "../include/TRANSACTION.h"
+#include "../include/Transaction.h"
 #include "../include/BankAccount.h"
 #include "../include/Category.h"
 #include "../include/Operation.h"
 
 
-TRANSACTION::TRANSACTION(const ID& id_, BankAccount* from_, BankAccount* to_, RUB sum_, DATE date_, Category* category_) : date(date_) {
+Transaction::Transaction(const ID& id_, BankAccount* from_, BankAccount* to_, RUB sum_, DATE date_, Category* category_) : date(date_) {
   id = id_;
   from = from_;
   to = to_;
@@ -17,7 +17,7 @@ TRANSACTION::TRANSACTION(const ID& id_, BankAccount* from_, BankAccount* to_, RU
   }
 }
 
-TRANSACTION::TRANSACTION(const ID& id_, BankAccount* from_, BankAccount* to_, RUB sum_, DATE date_, STR descr_, Category* category_) : date(date_) {
+Transaction::Transaction(const ID& id_, BankAccount* from_, BankAccount* to_, RUB sum_, DATE date_, STR descr_, Category* category_) : date(date_) {
   id = id_;
   from = from_;
   to = to_;
@@ -30,23 +30,23 @@ TRANSACTION::TRANSACTION(const ID& id_, BankAccount* from_, BankAccount* to_, RU
   }
 }
 
-void TRANSACTION::set_describtion(STR line) {
+void Transaction::set_describtion(STR line) {
   descr = line;
 }
 
-BankAccount* TRANSACTION::_from() const {
+BankAccount* Transaction::_from() const {
   return from;
 }
 
-BankAccount* TRANSACTION::_to() const {
+BankAccount* Transaction::_to() const {
   return to;
 }
 
-RUB TRANSACTION::_sum() const {
+RUB Transaction::_sum() const {
   return sum;
 }
 
-void TRANSACTION::SecretRegister() {
+void Transaction::SecretRegister() {
   Category* category_from = new Category(*category);
   Category* category_to = new Category(*category);
   category_from -> set_type(-1);
@@ -57,7 +57,7 @@ void TRANSACTION::SecretRegister() {
   to->ADD_TRANS(*this);
 }
 
-void TRANSACTION::Register(std::vector<Operation>& operations_) {
+void Transaction::Register(std::vector<Operation>& operations_) {
   Category* category_from = new Category(*category);
   Category* category_to = new Category(*category);
   category_from -> set_type(-1);
@@ -70,7 +70,7 @@ void TRANSACTION::Register(std::vector<Operation>& operations_) {
   operations_.push_back(Operation(id, TYPE_TRANS(1), to, sum, date, descr, category_to));
 }
 
-void TRANSACTION::log(std::ostream& out) const {
+void Transaction::log(std::ostream& out) const {
   out << "--------------------------------------------------------------------------------------------\n      ";
   id.log(out);
   out << "\n      FROM: ";

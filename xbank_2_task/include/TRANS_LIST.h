@@ -4,15 +4,15 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
-#include "TRANSACTION.h"
+#include "Transaction.h"
 
 
 class TRANS_LIST {
 public:
   TRANS_LIST() {}
-  void ADD_FROM(const TRANSACTION& transaction_);
-  void ADD_TO(const TRANSACTION& transaction_);
+  void ADD_FROM(const Transaction& transaction_);
+  void ADD_TO(const Transaction& transaction_);
   void log(std::ostream& out = std::cout) const;
 private:
-  std::vector<TRANSACTION> transactions;
+  std::vector<Transaction> transactions;
 };
