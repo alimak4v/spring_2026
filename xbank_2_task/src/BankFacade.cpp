@@ -21,10 +21,10 @@ void BankFacade::SecretRegister(BankAccount* from_, BankAccount* to_, RUB sum_, 
   t.SecretRegister();
 }
 
-void BankFacade::log(std::ostream& out) {
+void BankFacade::Log(std::ostream& out) {
   out << "\n\n\nOPERATION LIST:\n";
   for (const auto& o : ops) {
-    o.log();
+    o.Log();
     out << "\n";
   }
 }

@@ -19,7 +19,7 @@ TYPE_TRANS::TYPE_TRANS(std::string diff_balance_) {
   }
 }
 
-void TYPE_TRANS::log(std::ostream& out) const {
+void TYPE_TRANS::Log(std::ostream& out) const {
   out << "TYPE_TRANSACTION: ";
-  type.log(out);
+  type.Log(out);
 }

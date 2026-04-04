@@ -8,7 +8,7 @@
 class DATE {
 public:
   DATE(int64_t day_, int64_t month_, int64_t year_);
-  void log(std::ostream& out = std::cout) const;
+  void Log(std::ostream& out = std::cout) const;
 private:
   int64_t day;
   int64_t month;

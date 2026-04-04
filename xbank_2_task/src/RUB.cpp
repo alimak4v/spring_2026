@@ -11,11 +11,11 @@ RUB::RUB(RUB_INT integer_part, RUB_FLOAT float_part) {
   float_part_ = float_part;
 }
 
-int64_t RUB::to_kopek() const {
+int64_t RUB::ToKopek() const {
   return int_part_() * 100 + float_part_();
 }
 
-RUB RUB::from_kopek(int64_t kopek) {
+RUB RUB::FromKopek(int64_t kopek) {
   if (kopek < 0 || kopek >= MAX_INT * 100) throw RUB_Exception();
   return RUB(kopek / 100, kopek % 100);
 }
@@ -29,15 +29,15 @@ RUB& RUB::operator=(const RUB& other) {
 }
 
 RUB RUB::operator+(const RUB& other) const {
-  return from_kopek(this->to_kopek() + other.to_kopek());
+  return FromKopek(this->ToKopek() + other.ToKopek());
 }
 
 RUB RUB::operator-(const RUB& other) const {
-  return from_kopek(this->to_kopek() - other.to_kopek());
+  return FromKopek(this->ToKopek() - other.ToKopek());
 }
 
 bool RUB::operator==(const RUB& other) const {
-  return this->to_kopek() == other.to_kopek();
+  return this->ToKopek() == other.ToKopek();
 }
 
 bool RUB::operator!=(const RUB& other) const {
@@ -45,11 +45,11 @@ bool RUB::operator!=(const RUB& other) const {
 }
 
 bool RUB::operator>(const RUB& other) const {
-  return this->to_kopek() > other.to_kopek();
+  return this->ToKopek() > other.ToKopek();
 }
 
 bool RUB::operator<(const RUB& other) const {
-  return this->to_kopek() < other.to_kopek();
+  return this->ToKopek() < other.ToKopek();
 }
 
 bool RUB::operator>=(const RUB& other) const {
@@ -60,7 +60,7 @@ bool RUB::operator<=(const RUB& other) const {
   return *this == other || *this < other;
 }
 
-void RUB::log(std::ostream& out) const {
+void RUB::Log(std::ostream& out) const {
   out << "RUB: ";
   out << int_part_() << ".";
   if (float_part_() < 10) {

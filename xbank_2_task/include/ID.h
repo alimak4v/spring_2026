@@ -11,12 +11,12 @@ public:
   ID();
   ID(int64_t id_);
   ID& operator=(const ID& other);
-  static ID GENERATE_UNIQUE();
-  static bool IS_USED(int64_t id_);
-  static void MARK_AS_USED(int64_t id_);
+  static ID GenerateUnique();
+  static bool IsUsed(int64_t id_);
+  static void MarkAsUsed(int64_t id_);
 
   int64_t operator()() const;
-  void log(std::ostream& out = std::cout) const;
+  void Log(std::ostream& out = std::cout) const;
 private:
   int64_t id;
   static std::map<int64_t, bool> WAS_USED;

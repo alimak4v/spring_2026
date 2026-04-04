@@ -27,6 +27,6 @@ std::string STR::operator()() const {
   return str;
 }
 
-void STR::log(std::ostream& out) const {
+void STR::Log(std::ostream& out) const {
   out << str;
 }

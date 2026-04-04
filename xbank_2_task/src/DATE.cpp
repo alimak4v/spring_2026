@@ -34,6 +34,6 @@ DATE::DATE(int64_t day_, int64_t month_, int64_t year_) {
   year=year_;
 }
 
-void DATE::log(std::ostream& out) const {
+void DATE::Log(std::ostream& out) const {
   out << "DATE: " << day << "." << month << "." << year;
 }

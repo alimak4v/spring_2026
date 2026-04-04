@@ -14,8 +14,8 @@ public:
   Category(const ID& id_, std::string name_);
   Category(int64_t id_, std::string name_);
   Category(const ID& id_, STR name_);
-  void set_type(int64_t dif_balance_);
-  void log(std::ostream& out = std::cout) const;
+  void SetType(int64_t dif_balance_);
+  void Log(std::ostream& out = std::cout) const;
 private:
   ID id;
   TYPE_TRANS type;

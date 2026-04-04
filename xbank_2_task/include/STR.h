@@ -9,7 +9,7 @@ class STR {
 public:
   STR(std::string str_ = "");
   std::string operator()() const;
-  void log(std::ostream& out = std::cout) const;
+  void Log(std::ostream& out = std::cout) const;
 private:
   std::string str;
 };

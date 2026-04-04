@@ -10,9 +10,9 @@
 class TRANS_LIST {
 public:
   TRANS_LIST() {}
-  void ADD_FROM(const Transaction& transaction_);
-  void ADD_TO(const Transaction& transaction_);
-  void log(std::ostream& out = std::cout) const;
+  void AddFrom(const Transaction& transaction_);
+  void AddTo(const Transaction& transaction_);
+  void Log(std::ostream& out = std::cout) const;
 private:
   std::vector<Transaction> transactions;
 };

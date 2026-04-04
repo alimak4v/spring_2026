@@ -30,58 +30,58 @@ Transaction::Transaction(const ID& id_, BankAccount* from_, BankAccount* to_, RU
   }
 }
 
-void Transaction::set_describtion(STR line) {
+void Transaction::SetDescribtion(STR line) {
   descr = line;
 }
 
-BankAccount* Transaction::_from() const {
+BankAccount* Transaction::From() const {
   return from;
 }
 
-BankAccount* Transaction::_to() const {
+BankAccount* Transaction::To() const {
   return to;
 }
 
-RUB Transaction::_sum() const {
+RUB Transaction::Sum() const {
   return sum;
 }
 
 void Transaction::SecretRegister() {
   Category* category_from = new Category(*category);
   Category* category_to = new Category(*category);
-  category_from -> set_type(-1);
-  category_to -> set_type(1);
+  category_from -> SetType(-1);
+  category_to -> SetType(1);
   category = category_from;
-  from->ADD_TRANS(*this);
+  from->AddTrans(*this);
   category = category_to;
-  to->ADD_TRANS(*this);
+  to->AddTrans(*this);
 }
 
 void Transaction::Register(std::vector<Operation>& operations_) {
   Category* category_from = new Category(*category);
   Category* category_to = new Category(*category);
-  category_from -> set_type(-1);
-  category_to -> set_type(1);
+  category_from -> SetType(-1);
+  category_to -> SetType(1);
   category = category_from;
-  from->ADD_TRANS(*this);
+  from->AddTrans(*this);
   category = category_to;
-  to->ADD_TRANS(*this);
+  to->AddTrans(*this);
   operations_.push_back(Operation(id, TYPE_TRANS(-1), from, sum, date, descr, category_from));
   operations_.push_back(Operation(id, TYPE_TRANS(1), to, sum, date, descr, category_to));
 }
 
-void Transaction::log(std::ostream& out) const {
+void Transaction::Log(std::ostream& out) const {
   out << "--------------------------------------------------------------------------------------------\n      ";
-  id.log(out);
+  id.Log(out);
   out << "\n      FROM: ";
-  from->get_name().log(out);
+  from->GetName().Log(out);
   out << "\n      TO: ";
-  to->get_name().log(out);
+  to->GetName().Log(out);
   out << "\n      ";
-  sum.log(out);
+  sum.Log(out);
   out << "\n      ";
-  date.log(out);
+  date.Log(out);
   out << "\n      ";
-  category->log(out);
+  category->Log(out);
   out << "\n--------------------------------------------------------------------------------------------";
 }

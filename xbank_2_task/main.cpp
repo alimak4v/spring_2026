@@ -18,12 +18,12 @@
 int main() {
   std::cout << "======================================= X-Bank Test ========================================\n\n";
 
-  BankAccount a0 = BankAccountFactory::create(ID(), "Eupatii Kolovratov");
-  BankAccount a1 = BankAccountFactory::create(ID(), "Aleksei Sinitsyn");
-  BankAccount a2 = BankAccountFactory::create(ID(), "Sasha Petrova");
+  BankAccount a0 = BankAccountFactory::Create(ID(), "Eupatii Kolovratov");
+  BankAccount a1 = BankAccountFactory::Create(ID(), "Aleksei Sinitsyn");
+  BankAccount a2 = BankAccountFactory::Create(ID(), "Sasha Petrova");
 
-  a1.TOP_UP_ACCOUNT(RUB(50000, 0));
-  // a1.log();
+  a1.TopUpAccount(RUB(50000, 0));
+  // a1.Log();
   // std::cout << std::endl;
 
   Category c1(ID(), "TRANSFER BETWEEN FRIENDS");
@@ -33,22 +33,22 @@ int main() {
   Transaction t0(ID(1991), &a1, &a0, RUB(15000, 50), d1, &c1);
   BankFacade::Register(t0);
   Transaction t1(ID(100), &a1, &a2, RUB(15000, 50), d1, &c1);
-  t1.set_describtion(STR("transfer"));
+  t1.SetDescribtion(STR("transfer"));
   BankFacade::Register(t1);
 
   DATE d2(2, 4, 2026);
   Transaction t2(ID(), &a2, &a1, RUB(100, 99), d2, &c2);
-  t2.set_describtion(STR("kupil suhariki"));
+  t2.SetDescribtion(STR("kupil suhariki"));
   BankFacade::Register(t2);
 
-  a1.log();
+  a1.Log();
   std::cout << std::endl;
-  a2.log();
+  a2.Log();
   std::cout << std::endl;
   
-  a2.UPDATE_NAME("Sasha Markova");
+  a2.UpdateName("Sasha Markova");
 
-  BankFacade::log();
+  BankFacade::Log();
   std::cout << "\n\n";
 
   return 0;

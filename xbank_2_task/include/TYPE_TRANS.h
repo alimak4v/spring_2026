@@ -10,7 +10,7 @@ class TYPE_TRANS {
 public:
   TYPE_TRANS(int8_t diff_balance_ = 0);
   TYPE_TRANS(std::string diff_balance_);
-  void log(std::ostream& out = std::cout) const;
+  void Log(std::ostream& out = std::cout) const;
 private:
   STR type;
 };

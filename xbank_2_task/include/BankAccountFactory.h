@@ -8,6 +8,6 @@
 
 class BankAccountFactory {
 public:
-  static BankAccount create(int64_t id_, std::string name_);
-  static BankAccount create(const ID &id_, std::string name_);
+  static BankAccount Create(int64_t id_, std::string name_);
+  static BankAccount Create(const ID &id_, std::string name_);
 };

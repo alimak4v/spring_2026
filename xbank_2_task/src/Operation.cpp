@@ -15,16 +15,16 @@ Operation::Operation(const ID& id_, TYPE_TRANS type_, BankAccount* bank_account_
   category = category_;
 }
 
-void Operation::log(std::ostream& out) const {
+void Operation::Log(std::ostream& out) const {
   out << "[\n   ";
-  id.log(out);
+  id.Log(out);
   out << "\n   ACCOUNT: ";
-  bank_account->get_name().log(out);
+  bank_account->GetName().Log(out);
   out << "\n   ";
-  sum.log(out);
+  sum.Log(out);
   out << "\n   ";
-  date.log(out);
+  date.Log(out);
   out << "\n   ";
-  category->log(out);
+  category->Log(out);
   out << "\n];\n";
 }

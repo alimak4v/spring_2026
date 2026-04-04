@@ -8,48 +8,48 @@ BankAccount::BankAccount(const ID& id_, const STR& name_, const RUB& balance_) {
   balance = balance_;
 }
 
-void BankAccount::UPDATE_NAME(const std::string& new_name_) {
+void BankAccount::UpdateName(const std::string& new_name_) {
   name = STR(new_name_);
 }
 
-void BankAccount::UPDATE_ID(int64_t new_id_) {
+void BankAccount::UpdateId(int64_t new_id_) {
   id = ID(new_id_);
 }
 
-RUB BankAccount::balance_() const {
+RUB BankAccount::Balance() const {
   return balance;
 }
 
-void BankAccount::TOP_UP_ACCOUNT(RUB sum_) {
+void BankAccount::TopUpAccount(RUB sum_) {
   balance = balance + sum_;
 }
 
-void BankAccount::ADD_TRANS(const Transaction& transaction_) {
-  if (transaction_._from() == this) {
-    list.ADD_FROM(transaction_);
-    balance = balance - transaction_._sum();
-  } else if (transaction_._to() == this) {
-    list.ADD_TO(transaction_);
-    balance = balance + transaction_._sum();
+void BankAccount::AddTrans(const Transaction& transaction_) {
+  if (transaction_.From() == this) {
+    list.AddFrom(transaction_);
+    balance = balance - transaction_.Sum();
+  } else if (transaction_.To() == this) {
+    list.AddTo(transaction_);
+    balance = balance + transaction_.Sum();
   } else {
     throw TRANS_Exception();
   }
 }
 
-STR BankAccount::get_name() const {
+STR BankAccount::GetName() const {
   return name;
 }
 
-void BankAccount::log(std::ostream& out) const {
+void BankAccount::Log(std::ostream& out) const {
   out << "============================================================================================\n";
   out << "                                      BANK ACCOUNT\n";
   out << "--------------------------------------------------------------------------------------------\n   ";
-  id.log(out);
+  id.Log(out);
   out << "\n   NAME: ";
-  name.log(out);
+  name.Log(out);
   out << "\n   ";
-  balance.log(out);
+  balance.Log(out);
   out << "\n   LIST OF TRANSACTIONS: ";
-  list.log(out);
+  list.Log(out);
   out << "============================================================================================\n";
 }

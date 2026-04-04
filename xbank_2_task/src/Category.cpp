@@ -22,16 +22,16 @@ Category::Category(const ID& id_, STR name_) {
   name = name_;
 }
 
-void Category::set_type(int64_t dif_balance_) {
+void Category::SetType(int64_t dif_balance_) {
   type = TYPE_TRANS(dif_balance_);
 }
 
-void Category::log(std::ostream& out) const {
+void Category::Log(std::ostream& out) const {
   out << "CATEGORY: [";
-  id.log(out);
+  id.Log(out);
   out << "; ";
-  type.log(out);
+  type.Log(out);
   out << "; NAME: ";
-  name.log(out);
+  name.Log(out);
   out << "]";
 }
