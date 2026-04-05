@@ -6,9 +6,6 @@
 Operation::Operation(const ID& id_, TYPE_TRANS type_, BankAccount* bank_account_, RUB sum_, DATE date_, STR descr_, Category* category_) : date(date_) {
   id = id_;
   type = type_;
-  if (bank_account_ == nullptr || category_ == nullptr) {
-    throw TRANS_Exception();
-  }
   bank_account = bank_account_;
   sum = sum_;
   descr = descr_;

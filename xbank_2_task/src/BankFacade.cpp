@@ -28,3 +28,7 @@ void BankFacade::Log(std::ostream& out) {
     out << "\n";
   }
 }
+
+void BankFacade::AddOperation(const Operation& op) {
+  ops.push_back(op);
+}

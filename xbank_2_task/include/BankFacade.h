@@ -15,6 +15,7 @@ public:
   static void SecretRegister(Transaction& trans_);
   static void SecretRegister(BankAccount* from_, BankAccount* to_, RUB sum_, DATE date_, Category* category_, ID id_ = ID());
   static void Log(std::ostream& out = std::cout);
+  static void AddOperation(const Operation& op);
 private:
   static std::vector<Operation> ops;
 };

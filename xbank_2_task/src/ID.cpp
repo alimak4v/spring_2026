@@ -2,6 +2,7 @@
 
 
 std::map<int64_t, bool> ID::WAS_USED;
+bool ID::importing;
 
 ID::ID() {
   ID id_ = GenerateUnique();
@@ -13,7 +14,7 @@ ID::ID(int64_t id_) {
   if (id_ < 0) {
     throw ID_Exception();
   }
-  if (IsUsed(id_)) {
+  if (IsUsed(id_) && importing == false) {
     throw ID_Exception();
   }
   id = id_;

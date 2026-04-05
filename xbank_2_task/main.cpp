@@ -13,10 +13,17 @@
 #include "include/BankAccount.h"
 #include "include/BankAccountFactory.h"
 #include "include/BankFacade.h"
+#include "include/JSONOperationImporter.h"
 
 
 int main() {
   std::cout << "======================================= X-Bank Test ========================================\n\n";
+  ID::importing = true;
+  JSONOperationImporter jsonImporter;
+  jsonImporter.Import("operations.json");
+  ID::importing = false;
+
+  BankFacade::Log();
 
   BankAccount a0 = BankAccountFactory::Create(ID(), "Eupatii Kolovratov");
   BankAccount a1 = BankAccountFactory::Create(ID(), "Aleksei Sinitsyn");
@@ -45,7 +52,7 @@ int main() {
   std::cout << std::endl;
   a2.Log();
   std::cout << std::endl;
-  
+
   a2.UpdateName("Sasha Markova");
 
   BankFacade::Log();

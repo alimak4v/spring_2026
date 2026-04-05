@@ -1,0 +1,8 @@
+[
+  {"id":1,"type":"-","bank_account_id":1,"amount":15000,"date":"28.2.2026","description":"transfer","category_id":7},
+  {"id":1,"type":"+","bank_account_id":0,"amount":15000,"date":"28.2.2026","description":"transfer","category_id":7},
+  {"id":2,"type":"-","bank_account_id":1,"amount":15000,"date":"28.2.2026","description":"transfer","category_id":7},
+  {"id":2,"type":"+","bank_account_id":2,"amount":15000,"date":"28.2.2026","description":"transfer","category_id":7},
+  {"id":3,"type":"-","bank_account_id":2,"amount":100,"date":"2.4.2026","description":"kupil suhariki","category_id":9},
+  {"id":3,"type":"+","bank_account_id":1,"amount":100,"date":"2.4.2026","description":"kupil suhariki","category_id":9}
+]
