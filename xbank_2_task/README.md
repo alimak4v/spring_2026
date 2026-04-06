@@ -99,6 +99,11 @@ g++ -std=c++17 -Wall -Wextra main.cpp src/*.cpp -o x-bank && ./x-bank
 * `SecretRegister`
 ---
 
+### 5. Singletone BankFacade
+Не можем создать экземпляр. 
+Существует только класс со статик методами и объектами.
+---
+
 ## DDD (Domain-Driven Design)
 ### ✔ Rich Domain Model
 * `BankAccount` содержит бизнес-логику
@@ -140,8 +145,9 @@ g++ -std=c++17 -Wall -Wextra main.cpp src/*.cpp -o x-bank
 * Factory ✔
 * Template Method ✔
 * Command ✔
+* Singletone ✔
 * Visitor-частично
-➡️ **4+[visitor] / 6 баллов**
+➡️ **5+[visitor] / 6 баллов**
 ---
 
 ### DDD (2 балла)
